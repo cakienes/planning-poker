@@ -65,7 +65,7 @@ export const mapDispatchToProps = (dispatch: Function) => {
         setSelectedSession: (id: string) => {
             dispatch(setSelectedSession(id));
         },
-        giveStoryPoint: (userType: UserTypeEnum, storyPoint: number) => {
+        giveStoryPoint: (userType: UserTypeEnum, storyPoint?: number) => {
             dispatch(giveStoryPoint(userType, storyPoint));
         },
         getSessionsFromLocalStorage: () => {

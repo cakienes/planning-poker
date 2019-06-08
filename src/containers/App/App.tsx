@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { getSessionsFromLocalStorage } from '../../redux/session/session.actions';
 import CreateSession from '../CreateSession/CreateSession';
+import SessionError from '../SessionError/SessionError';
 import SessionForDeveloper from '../SessionForDeveloper/SessionForDeveloper';
 import SessionForScrumMaster from '../SessionForScrumMaster/SessionForScrumMaster';
 import './App.scss';
@@ -20,6 +21,7 @@ export class App extends React.Component<IAppProps, any> {
                 <Route path="/" exact component={CreateSession} />
                 <Route path="/session/:id/developer/:developerId?" exact component={SessionForDeveloper} />
                 <Route path="/session/:id/scrum-master" exact component={SessionForScrumMaster} />
+                <Route path="/session-error/:type(full|not-found)" exact component={SessionError} />
             </BrowserRouter>
         );
     }

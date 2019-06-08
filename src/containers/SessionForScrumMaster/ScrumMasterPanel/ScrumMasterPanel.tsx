@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { UserTypeEnum } from '../../../helper/Enum';
 import IGlobalState from '../../../interfaces/IGlobalState';
 import IVoter from '../../../interfaces/IVoter';
+import { setFinalScore } from '../../../redux/session/session.actions';
 import { getActiveUserStory, getSelectedSession } from '../../../redux/session/session.selectors';
+import FinalScoreForm from './FinalScoreForm/FinalScoreForm';
 import IScrumMasterPanelProps from './interface/IScrumMasterPanelProps';
 import './ScrumMasterPanel.scss';
 export class ScrumMasterPanel extends React.Component<IScrumMasterPanelProps, any> {
@@ -17,8 +19,8 @@ export class ScrumMasterPanel extends React.Component<IScrumMasterPanelProps, an
                         <div className="storyName">{activeUserStory && activeUserStory.storyName}</div>
                         <div className="voterList">{this.renderVoters()}</div>
                     </div>
+                    <div className="text-center">{this.renderDownBlock()}</div>
                 </div>
-                <input />
             </div>
         );
     }
@@ -26,10 +28,6 @@ export class ScrumMasterPanel extends React.Component<IScrumMasterPanelProps, an
     renderVoters = (): React.ReactNode => {
         const { activeUserStory, selectedSession } = this.props;
         if (selectedSession && activeUserStory) {
-            const array: number[] = [];
-            for (let index = 1; index < selectedSession.developers.length + 1; index++) {
-                array.push(index);
-            }
             return (
                 <ul>
                     {selectedSession.developers.map((developerId: string, index: number) => (
@@ -48,13 +46,31 @@ export class ScrumMasterPanel extends React.Component<IScrumMasterPanelProps, an
         if (activeUserStory && activeUserStory.voters && selectedSession) {
             const voter: IVoter | undefined = activeUserStory.voters.find(x => x.voterName === developerId);
             if (activeUserStory.voters.length === Number(selectedSession.numberOfVoters) + 1) {
-                if (voter && voter.storyPoint !== 1000) return voter.storyPoint.toString();
-                else if (voter && voter.storyPoint === 1000) return '?';
+                if (voter && voter.storyPoint) return voter.storyPoint.toString();
+                else if (voter && !voter.storyPoint) return '?';
             }
             if (voter) return 'Voted';
-            else return 'Not Voted';
         }
         return 'Not Voted';
+    };
+
+    renderDownBlock = (): React.ReactNode => {
+        const { activeUserStory, selectedSession } = this.props;
+        if (activeUserStory) {
+            if (
+                selectedSession &&
+                activeUserStory.voters &&
+                activeUserStory.voters.length === Number(selectedSession.numberOfVoters) + 1
+            ) {
+                return <FinalScoreForm onSubmit={this.setFinalScore} />;
+            }
+            return <div>You can not end voting till each teammate voted</div>;
+        }
+        return <div>SESSION ENDED</div>;
+    };
+
+    setFinalScore = (values: any): void => {
+        this.props.setFinalScore(values.finalScore);
     };
 }
 
@@ -63,7 +79,15 @@ const mapStateToProps = (state: IGlobalState) => ({
     selectedSession: getSelectedSession(state),
 });
 
+export const mapDispatchToProps = (dispatch: Function) => {
+    return {
+        setFinalScore: (finalScore: string) => {
+            dispatch(setFinalScore(finalScore));
+        },
+    };
+};
+
 export default connect(
     mapStateToProps,
-    null,
+    mapDispatchToProps,
 )(ScrumMasterPanel);

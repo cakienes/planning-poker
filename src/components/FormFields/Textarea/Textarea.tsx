@@ -6,7 +6,7 @@ const Textarea: React.FC<ITextareaProps> = ({ label, input, meta: { touched, err
     return (
         <div className="defaultTextareaHolder">
             <label className="defaultLabel">{label}</label>
-            <div>
+            <div className={`${touched && error ? 'error' : undefined}`}>
                 <textarea className="defaultTextarea" id={input.name} placeholder={placeholder} rows={10} {...input} />
             </div>
         </div>

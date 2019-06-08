@@ -18,7 +18,7 @@ export class ActiveStory extends React.Component<IActiveStoryProps, any> {
                         <ul className="row">{this.renderFibonacciNumbers()}</ul>
                     </div>
                     <div className="voteNumber">
-                        {!storyPoint ? 'Please Vote!' : (storyPoint === 1000 ? '?' : storyPoint) + ' Voted'}
+                        {storyPoint === -1 ? 'Please Vote!' : (!storyPoint ? '?' : storyPoint) + ' Voted'}
                     </div>
                 </div>
             </div>
@@ -38,24 +38,21 @@ export class ActiveStory extends React.Component<IActiveStoryProps, any> {
                         <span>{x}</span>
                     </li>
                 ))}
-                <li
-                    className={`col-3 ${storyPoint === 1000 ? 'selected' : undefined}`}
-                    onClick={() => this.giveStoryPoint(1000)}
-                >
+                <li className={`col-3 ${!storyPoint ? 'selected' : undefined}`} onClick={() => this.giveStoryPoint()}>
                     <span>?</span>
                 </li>
             </ul>
         );
     };
 
-    giveStoryPoint = (value: number): void => {
+    giveStoryPoint = (value?: number): void => {
         const { type } = this.props;
         if (type) {
             this.props.giveStoryPoint(type, value);
         }
     };
 
-    getMyStoryPoint = (): number | string | undefined => {
+    getMyStoryPoint = (): number => {
         const { activeUserStory, developerId } = this.props;
 
         if (activeUserStory && activeUserStory.voters) {
@@ -63,9 +60,7 @@ export class ActiveStory extends React.Component<IActiveStoryProps, any> {
                 x => x.voterName === (developerId || UserTypeEnum.SCRUM_MASTER),
             );
             if (voter) return voter.storyPoint;
-            return undefined;
         }
-
         return -1;
     };
 }

@@ -6,7 +6,7 @@ import IUserStory from '../../../interfaces/IUserStory';
 export default interface ISessionForScrumMasterProps extends RouteComponentProps<any> {
     activeUserStory?: IUserStory;
     getSessionsFromLocalStorage: () => void;
-    giveStoryPoint: (userType: UserTypeEnum, storyPoint: number) => void;
+    giveStoryPoint: (userType: UserTypeEnum, storyPoint?: number) => void;
     selectedSession?: ISession;
     setSelectedSession: (id: string) => void;
 }

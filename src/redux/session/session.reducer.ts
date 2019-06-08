@@ -98,6 +98,31 @@ export default function SessionReducer(state: ISessionModel = {}, action: any) {
                 developerId: action.developerId,
             };
         }
+        case SessionConstants.SET_FINAL_SCORE: {
+            const sessions: ISession[] = Object.assign([], state.sessions);
+            const sessionIndex = sessions.findIndex(x => x.id === state.selectedSessionId);
+            if (sessionIndex !== -1) {
+                const selectedSession = Object.assign({}, sessions[sessionIndex]);
+                const storyIndex = selectedSession.userStories.findIndex(x => x.status === UserStoryStatusEnum.ACTIVE);
+                if (storyIndex !== -1) {
+                    const activeStory = Object.assign({}, selectedSession.userStories[storyIndex]);
+
+                    activeStory.storyPoint = action.finalScore;
+                    activeStory.status = UserStoryStatusEnum.VOTED;
+
+                    selectedSession.userStories[storyIndex] = activeStory;
+
+                    const nextStory = Object.assign({}, selectedSession.userStories[storyIndex + 1]);
+                    if (nextStory && nextStory.storyName) {
+                        nextStory.status = UserStoryStatusEnum.ACTIVE;
+                        selectedSession.userStories[storyIndex + 1] = nextStory;
+                    }
+                }
+                sessions[sessionIndex] = selectedSession;
+                LocalStorageService.setSessions(sessions);
+            }
+            return { ...state, sessions };
+        }
         default: {
             return state;
         }

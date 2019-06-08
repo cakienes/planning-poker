@@ -4,6 +4,7 @@ import {
     GET_SESSIONS_FROM_LOCAL_STORAGE,
     GIVE_STORY_POINT,
     SET_DEVELOPER,
+    SET_FINAL_SCORE,
     SET_NEW_DEVELOPER,
     SET_SELECTED_SESSION,
 } from './session.constants';
@@ -27,7 +28,7 @@ export const setSelectedSession = (id: string) => (dispatch: Function) => {
     });
 };
 
-export const giveStoryPoint = (voterName: string, storyPoint: number) => (dispatch: Function) => {
+export const giveStoryPoint = (voterName: string, storyPoint?: number) => (dispatch: Function) => {
     dispatch({
         type: GIVE_STORY_POINT,
         voterName: voterName.toUpperCase(),
@@ -45,5 +46,11 @@ export const setDeveloper = (developerId: string) => (dispatch: Function) => {
     dispatch({
         type: SET_DEVELOPER,
         developerId,
+    });
+};
+export const setFinalScore = (finalScore: string) => (dispatch: Function) => {
+    dispatch({
+        type: SET_FINAL_SCORE,
+        finalScore,
     });
 };

@@ -47,7 +47,7 @@ export class SessionForDeveloper extends React.Component<ISessionForDeveloperPro
     }
 
     componentDidMount(): any {
-        setTimeout(this.reRenderComponent, 3000);
+        setInterval(this.reRenderComponent, 1000);
     }
 
     render() {
@@ -91,7 +91,7 @@ export class SessionForDeveloper extends React.Component<ISessionForDeveloperPro
         }
         if (developerId) {
             if (!selectedSession.developers.find((x: string) => x === developerId)) {
-                window.location.href = 'https://www.google.com.tr';
+                this.props.history.push('/session-error/not-found');
             } else {
                 this.props.setDeveloper(developerId);
             }
@@ -103,7 +103,7 @@ export class SessionForDeveloper extends React.Component<ISessionForDeveloperPro
                 this.props.setNewDeveloper(guid);
                 return true;
             } else {
-                window.location.href = 'https://www.google.com.tr';
+                this.props.history.push('/session-error/full');
             }
         }
         return false;
@@ -124,7 +124,7 @@ export const mapDispatchToProps = (dispatch: Function) => {
         setSelectedSession: (id: string) => {
             dispatch(setSelectedSession(id));
         },
-        giveStoryPoint: (userType: UserTypeEnum, storyPoint: number) => {
+        giveStoryPoint: (userType: UserTypeEnum, storyPoint?: number) => {
             dispatch(giveStoryPoint(userType, storyPoint));
         },
         setNewDeveloper: (guid: string) => {
