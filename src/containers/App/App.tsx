@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { getSessionsFromLocalStorage } from '../../redux/session/session.actions';
 import CreateSession from '../CreateSession/CreateSession';
-import SessionDetail from '../SessionDetail/SessionDetail';
+import SessionForDeveloper from '../SessionForDeveloper/SessionForDeveloper';
+import SessionForScrumMaster from '../SessionForScrumMaster/SessionForScrumMaster';
 import './App.scss';
 import IAppProps from './interface/IAppProps';
 
@@ -17,7 +18,8 @@ export class App extends React.Component<IAppProps, any> {
         return (
             <BrowserRouter>
                 <Route path="/" exact component={CreateSession} />
-                <Route path="/session/:id/scrum-master" exact component={SessionDetail} />
+                <Route path="/session/:id/developer/:developerId?" exact component={SessionForDeveloper} />
+                <Route path="/session/:id/scrum-master" exact component={SessionForScrumMaster} />
             </BrowserRouter>
         );
     }

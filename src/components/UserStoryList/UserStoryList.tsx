@@ -1,8 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import IGlobalState from '../../../interfaces/IGlobalState';
-import IUserStory from '../../../interfaces/IUserStory';
-import { getSelectedSession } from '../../../redux/session/session.selectors';
+import IUserStory from '../../interfaces/IUserStory';
 import IUserStoryListProps from './interface/IUserStoryListProps';
 import './UserStoryList.scss';
 
@@ -42,11 +39,4 @@ export class UserStoryList extends React.Component<IUserStoryListProps, any> {
     };
 }
 
-const mapStateToProps = (state: IGlobalState) => ({
-    selectedSession: getSelectedSession(state),
-});
-
-export default connect(
-    mapStateToProps,
-    null,
-)(UserStoryList);
+export default UserStoryList;

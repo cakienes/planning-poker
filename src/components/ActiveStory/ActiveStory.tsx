@@ -1,10 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import IGlobalState from '../../../interfaces/IGlobalState';
-import IVoter from '../../../interfaces/IVoter';
-import { giveStoryPoint } from '../../../redux/session/session.actions';
-import { getActiveUserStory, getSelectedSession } from '../../../redux/session/session.selectors';
+import { UserTypeEnum } from '../../helper/Enum';
+import IVoter from '../../interfaces/IVoter';
 import './ActiveStory.scss';
 import IActiveStoryProps from './interface/IActiveStoryProps';
 
@@ -53,44 +49,25 @@ export class ActiveStory extends React.Component<IActiveStoryProps, any> {
     };
 
     giveStoryPoint = (value: number): void => {
-        const { match } = this.props;
-        if (match && match.params && match.params.voteFor) {
-            this.props.giveStoryPoint(match.params.voteFor, value);
+        const { type } = this.props;
+        if (type) {
+            this.props.giveStoryPoint(type, value);
         }
     };
 
     getMyStoryPoint = (): number | string | undefined => {
-        const {
-            activeUserStory,
-            match: {
-                params: { voteFor },
-            },
-        } = this.props;
-        if (activeUserStory && activeUserStory.voters && voteFor) {
-            const voter: IVoter | undefined = activeUserStory.voters.find(x => x.voterName === voteFor.toUpperCase());
+        const { activeUserStory, developerId } = this.props;
+
+        if (activeUserStory && activeUserStory.voters) {
+            const voter: IVoter | undefined = activeUserStory.voters.find(
+                x => x.voterName === (developerId || UserTypeEnum.SCRUM_MASTER),
+            );
             if (voter) return voter.storyPoint;
             return undefined;
         }
+
         return -1;
     };
 }
 
-const mapStateToProps = (state: IGlobalState) => ({
-    activeUserStory: getActiveUserStory(state),
-    selectedSession: getSelectedSession(state),
-});
-
-export const mapDispatchToProps = (dispatch: Function) => {
-    return {
-        giveStoryPoint: (voterName: string, storyPoint: number) => {
-            dispatch(giveStoryPoint(voterName, storyPoint));
-        },
-    };
-};
-
-export default withRouter(
-    connect(
-        mapStateToProps,
-        mapDispatchToProps,
-    )(ActiveStory),
-);
+export default ActiveStory;

@@ -3,6 +3,8 @@ import {
     ADD_SESSION,
     GET_SESSIONS_FROM_LOCAL_STORAGE,
     GIVE_STORY_POINT,
+    SET_DEVELOPER,
+    SET_NEW_DEVELOPER,
     SET_SELECTED_SESSION,
 } from './session.constants';
 
@@ -30,5 +32,18 @@ export const giveStoryPoint = (voterName: string, storyPoint: number) => (dispat
         type: GIVE_STORY_POINT,
         voterName: voterName.toUpperCase(),
         storyPoint,
+    });
+};
+
+export const setNewDeveloper = (guid: string) => (dispatch: Function) => {
+    dispatch({
+        type: SET_NEW_DEVELOPER,
+        guid,
+    });
+};
+export const setDeveloper = (developerId: string) => (dispatch: Function) => {
+    dispatch({
+        type: SET_DEVELOPER,
+        developerId,
     });
 };

@@ -5,4 +5,6 @@ export default interface ISession {
     sessionName: string;
     numberOfVoters: number;
     userStories: IUserStory[];
+
+    developers: string[];
 }

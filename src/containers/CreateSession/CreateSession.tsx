@@ -37,6 +37,7 @@ export class CreateSession extends React.Component<ICreateSessionProps, any> {
                 numberOfVoters: values.numberOfVoters,
                 sessionName: values.sessionName,
                 userStories,
+                developers: [],
             };
 
             this.props.createSession(newSession);
