@@ -1,0 +1,28 @@
+.userStoryList {
+    width: 100%;
+
+    .pageTitle {
+        font-size: 22px;
+    }
+    table {
+        margin-top: 20px;
+        width: 100%;
+        thead {
+            background: #afafaf;
+        }
+        tr {
+            width: 100%;
+
+            th,
+            td {
+                width: 33%;
+                border: 1px solid #000;
+                padding: 10px 5px;
+            }
+
+            &:nth-child(even) {
+                background: #ececec;
+            }
+        }
+    }
+}

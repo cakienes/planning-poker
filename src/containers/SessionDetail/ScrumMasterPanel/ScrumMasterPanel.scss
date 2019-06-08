@@ -1,0 +1,29 @@
+.scrumMasterPanel {
+    margin-top: 52px;
+    .storyDetail {
+        border: 1px solid #000;
+        padding-right: 30px;
+        position: relative;
+        margin-top: 20px;
+        .panelName {
+            position: absolute;
+            top: -13px;
+            background: #fff;
+            left: 15px;
+        }
+        .detailBox {
+            margin-top: 20px;
+            padding: 10px;
+            .storyName {
+            }
+            .voterList {
+                margin-top: 20px;
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

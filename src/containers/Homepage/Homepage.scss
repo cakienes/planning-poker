@@ -1,0 +1,21 @@
+.alignCenter {
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .createSession {
+        padding: 10px;
+        border: 1px solid #000;
+        background-color: #fff;
+        color: #000 !important;
+        cursor: pointer;
+        text-decoration: none !important;
+        text-align: center;
+    }
+}
+
+.sessionList {
+    border-bottom: 1px solid #000;
+    margin: 20px;
+}
