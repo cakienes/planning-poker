@@ -1,6 +1,7 @@
 const maxLength: any = (max: number) => (value: string) => (value && value.length > max ? value.slice(0, max) : value);
 
-const maxNumLength: any = (max: number) => (value: string) => {
+const onlyNumberRegex: any = (value: string, x: any, y: any) => {
+    debugger;
     if (value === 'e' || value === '0') {
         return null;
     }
@@ -12,7 +13,7 @@ const maxNumLength: any = (max: number) => (value: string) => {
     if (Number.isNaN(Number(numbers))) {
         return numbers.slice(0, -1);
     }
-    return maxLength(max)(numbers);
+    return numbers;
 };
 
-export { maxLength, maxNumLength };
+export { maxLength, onlyNumberRegex };

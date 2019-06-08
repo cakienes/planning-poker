@@ -33,6 +33,11 @@ export const CreateSessionForm = (props: ICreateSessionFormProps) => {
             </div>
             <div className="row">
                 <div className="col">
+                    <Field name="optionalUrl" label="URL (Optional): " component={FormFields} type="text" />
+                </div>
+            </div>
+            <div className="row">
+                <div className="col">
                     <Field
                         name="userStories"
                         label="Paste your story list (Each line will be converted as a story): "

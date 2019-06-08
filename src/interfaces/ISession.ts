@@ -6,5 +6,6 @@ export default interface ISession {
     numberOfVoters: number;
     userStories: IUserStory[];
 
+    optionalUrl?: string;
     developers: string[];
 }
