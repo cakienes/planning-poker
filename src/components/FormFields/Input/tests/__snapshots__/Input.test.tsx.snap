@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header.tsx renders without crashing 1`] = `ShallowWrapper {}`;
+exports[`Input.tsx renders without crashing 1`] = `ShallowWrapper {}`;
+
+exports[`Input.tsx renders without crashing while error 1`] = `ShallowWrapper {}`;

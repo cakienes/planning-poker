@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FinalScoreForm.tsx renders correctly FinalScoreForm 1`] = `
+<form
+  onSubmit={[MockFunction]}
+>
+  <div
+    className="row justify-content-center"
+  >
+    <div
+      className="col-8 "
+    >
+      <ForwardRef
+        component={[Function]}
+        name="finalScore"
+        type="number"
+        validate={
+          Array [
+            [Function],
+            [Function],
+          ]
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <Button
+        label="End Voting For undefined"
+        type="submit"
+      />
+    </div>
+  </div>
+</form>
+`;
+
+exports[`FinalScoreForm.tsx renders correctly FinalScoreForm while activeUserStory is define 1`] = `
+<form
+  onSubmit={[MockFunction]}
+>
+  <div
+    className="row justify-content-center"
+  >
+    <div
+      className="col-8 "
+    >
+      <ForwardRef
+        component={[Function]}
+        name="finalScore"
+        type="number"
+        validate={
+          Array [
+            [Function],
+            [Function],
+          ]
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <Button
+        label="End Voting For storyName"
+        type="submit"
+      />
+    </div>
+  </div>
+</form>
+`;

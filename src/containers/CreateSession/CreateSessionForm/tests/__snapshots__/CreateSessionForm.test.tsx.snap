@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateSessionForm.tsx renders correctly CreateSessionForm 1`] = `
+<form
+  onSubmit={[MockFunction]}
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-6"
+    >
+      <ForwardRef
+        component={[Function]}
+        label="Session Name: "
+        name="sessionName"
+        normalize={[Function]}
+        type="text"
+        validate={[Function]}
+      />
+    </div>
+    <div
+      className="col-6"
+    >
+      <ForwardRef
+        component={[Function]}
+        label="Number of Voters: "
+        name="numberOfVoters"
+        type="number"
+        validate={
+          Array [
+            [Function],
+            [Function],
+          ]
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <ForwardRef
+        component={[Function]}
+        label="URL (Optional): "
+        name="optionalUrl"
+        type="text"
+      />
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <ForwardRef
+        component={[Function]}
+        label="Paste your story list (Each line will be converted as a story): "
+        name="userStories"
+        type="textarea"
+        validate={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <div
+        className="buttonHolder"
+      >
+        <Button
+          label="Start Session"
+          type="submit"
+        />
+      </div>
+    </div>
+  </div>
+</form>
+`;

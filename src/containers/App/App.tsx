@@ -20,8 +20,9 @@ export class App extends React.Component<IAppProps, any> {
             <BrowserRouter>
                 <Route path="/" exact component={CreateSession} />
                 <Route path="/session/:id/developer/:developerId?" exact component={SessionForDeveloper} />
+                <Route path="/:optionalUrl/developer/:developerId?" exact component={SessionForDeveloper} />
                 <Route path="/session/:id/scrum-master" exact component={SessionForScrumMaster} />
-                <Route path="/session-error/:type(full|not-found)" exact component={SessionError} />
+                <Route path="/session-error" exact component={SessionError} />
             </BrowserRouter>
         );
     }

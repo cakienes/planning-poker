@@ -1,3 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App.tsx renders without crashing 1`] = `ShallowWrapper {}`;
+exports[`App.tsx renders correctly UserStoryList 1`] = `
+<BrowserRouter>
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/session/:id/developer/:developerId?"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/:optionalUrl/developer/:developerId?"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/session/:id/scrum-master"
+  />
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/session-error"
+  />
+</BrowserRouter>
+`;

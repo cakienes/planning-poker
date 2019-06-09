@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FibonacciBox.tsx renders correctly FibonacciBox 1`] = `
+<li
+  className="col-3 selected"
+  onClick={[Function]}
+>
+  <span>
+    1
+  </span>
+</li>
+`;
+
+exports[`FibonacciBox.tsx renders correctly FibonacciBox while fibonacciNumber is 0 1`] = `
+<li
+  className="col-3 undefined"
+  onClick={[Function]}
+>
+  <span>
+    ?
+  </span>
+</li>
+`;

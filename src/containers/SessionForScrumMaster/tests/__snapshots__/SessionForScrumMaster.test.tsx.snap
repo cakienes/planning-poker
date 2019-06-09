@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SessionForScrumMaster.tsx renders correctly SessionForScrumMaster 1`] = `
+<Layout>
+  <div
+    className="session"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        <div
+          className="linkHolder"
+        >
+          <span>
+            Link for developers: 
+          </span>
+          <span
+            className="font-weight-bold"
+          >
+            http://localhost/session/undefined/developer
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        <UserStoryList />
+      </div>
+      <div
+        className="col-4"
+      >
+        <ActiveStory
+          giveStoryPoint={[MockFunction]}
+          type="SCRUM_MASTER"
+        />
+      </div>
+      <div
+        className="col-4"
+      >
+        <Memo(ConnectFunction) />
+      </div>
+    </div>
+  </div>
+</Layout>
+`;
+
+exports[`SessionForScrumMaster.tsx renders correctly SessionForScrumMaster while selectedSession.optionalUrl is defined 1`] = `
+<Layout>
+  <div
+    className="session"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        <div
+          className="linkHolder"
+        >
+          <span>
+            Link for developers: 
+          </span>
+          <span
+            className="font-weight-bold"
+          >
+            http://localhost/optionalUrl/developer
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        <UserStoryList
+          selectedSession={
+            Object {
+              "developers": Array [],
+              "id": "id",
+              "numberOfVoters": 2,
+              "optionalUrl": "optionalUrl",
+              "sessionName": "sessionName",
+              "userStories": Array [],
+            }
+          }
+        />
+      </div>
+      <div
+        className="col-4"
+      >
+        <ActiveStory
+          giveStoryPoint={[MockFunction]}
+          selectedSession={
+            Object {
+              "developers": Array [],
+              "id": "id",
+              "numberOfVoters": 2,
+              "optionalUrl": "optionalUrl",
+              "sessionName": "sessionName",
+              "userStories": Array [],
+            }
+          }
+          type="SCRUM_MASTER"
+        />
+      </div>
+      <div
+        className="col-4"
+      >
+        <Memo(ConnectFunction) />
+      </div>
+    </div>
+  </div>
+</Layout>
+`;
+
+exports[`SessionForScrumMaster.tsx renders correctly SessionForScrumMaster while selectedSession.optionalUrl is not defined 1`] = `
+<Layout>
+  <div
+    className="session"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        <div
+          className="linkHolder"
+        >
+          <span>
+            Link for developers: 
+          </span>
+          <span
+            className="font-weight-bold"
+          >
+            http://localhost/session/id/developer
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        <UserStoryList
+          selectedSession={
+            Object {
+              "developers": Array [],
+              "id": "id",
+              "numberOfVoters": 2,
+              "optionalUrl": undefined,
+              "sessionName": "sessionName",
+              "userStories": Array [],
+            }
+          }
+        />
+      </div>
+      <div
+        className="col-4"
+      >
+        <ActiveStory
+          giveStoryPoint={[MockFunction]}
+          selectedSession={
+            Object {
+              "developers": Array [],
+              "id": "id",
+              "numberOfVoters": 2,
+              "optionalUrl": undefined,
+              "sessionName": "sessionName",
+              "userStories": Array [],
+            }
+          }
+          type="SCRUM_MASTER"
+        />
+      </div>
+      <div
+        className="col-4"
+      >
+        <Memo(ConnectFunction) />
+      </div>
+    </div>
+  </div>
+</Layout>
+`;

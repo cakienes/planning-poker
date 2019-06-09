@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserStoryList.tsx renders correctly UserStoryList 1`] = `
+<div
+  className="userStoryList"
+>
+  <div
+    className="pageTitle"
+  >
+    Story List
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Story
+        </th>
+        <th>
+          Story Point
+        </th>
+        <th>
+          Status
+        </th>
+      </tr>
+    </thead>
+    <tbody />
+  </table>
+</div>
+`;
+
+exports[`UserStoryList.tsx renders correctly UserStoryList while selectedSession.userStories is empty 1`] = `
+<div
+  className="userStoryList"
+>
+  <div
+    className="pageTitle"
+  >
+    Story List
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Story
+        </th>
+        <th>
+          Story Point
+        </th>
+        <th>
+          Status
+        </th>
+      </tr>
+    </thead>
+    <tbody />
+  </table>
+</div>
+`;
+
+exports[`UserStoryList.tsx renders correctly UserStoryList while selectedSession.userStories is not empty 1`] = `
+<div
+  className="userStoryList"
+>
+  <div
+    className="pageTitle"
+  >
+    Story List
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Story
+        </th>
+        <th>
+          Story Point
+        </th>
+        <th>
+          Status
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          storyName
+        </td>
+        <td />
+        <td />
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

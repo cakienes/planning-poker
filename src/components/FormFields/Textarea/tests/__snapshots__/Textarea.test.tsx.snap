@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Textarea.tsx renders correctly TextArea 1`] = `ShallowWrapper {}`;
+
+exports[`Textarea.tsx renders without crashing while error 1`] = `ShallowWrapper {}`;

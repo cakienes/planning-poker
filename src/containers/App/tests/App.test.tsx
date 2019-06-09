@@ -1,29 +1,39 @@
-import { shallow } from 'enzyme';
 import React from 'react';
-import { getLinksFromLocalStorage } from '../../../actions/creators/linkActions';
+import { createRenderer, ShallowRenderer } from 'react-test-renderer/shallow';
+import { getSessionsFromLocalStorage } from '../../../redux/session/session.actions';
 import { App, mapDispatchToProps } from '../App';
 import IAppProps from '../interface/IAppProps';
 
 describe('App.tsx', () => {
-    const getLinksFromLocalStorageMock = jest.fn();
-    const appProps: IAppProps = {
-        getLinksFromLocalStorage: getLinksFromLocalStorageMock,
+    let renderer: ShallowRenderer;
+    const getSessionsFromLocalStorageMock = jest.fn();
+    let appProps: IAppProps = {
+        getSessionsFromLocalStorage: getSessionsFromLocalStorageMock,
     };
-    it('renders without crashing', async () => {
-        expect(shallow(<App {...appProps} />)).toMatchSnapshot();
+
+    beforeEach(() => {
+        renderer = createRenderer();
+        appProps = {
+            getSessionsFromLocalStorage: getSessionsFromLocalStorageMock,
+        };
+    });
+    it('renders correctly UserStoryList', async () => {
+        expect(renderer.render(<App {...appProps} />)).toMatchSnapshot();
     });
 
-    it('SHOULD have call getLinksFromLocalStorage', async () => {
-        shallow(<App {...appProps} />);
-        expect(getLinksFromLocalStorageMock).toHaveBeenCalled();
+    it('should call getSessionsFromLocalStorageMock', async () => {
+        renderer.render(<App {...appProps} />);
+        expect(getSessionsFromLocalStorageMock).toHaveBeenCalled();
     });
 
     describe('mapDispatchToProps', () => {
         it('should dispatch getLinksFromLocalStorage when called', () => {
             const dispatchMock = jest.fn();
             const result = mapDispatchToProps(dispatchMock);
-            result.getLinksFromLocalStorage();
-            expect(JSON.stringify(dispatchMock.mock.calls[0][0])).toEqual(JSON.stringify(getLinksFromLocalStorage()));
+            result.getSessionsFromLocalStorage();
+            expect(JSON.stringify(dispatchMock.mock.calls[0][0])).toEqual(
+                JSON.stringify(getSessionsFromLocalStorage()),
+            );
         });
     });
 });

@@ -2,9 +2,10 @@ import React from 'react';
 import { UserTypeEnum } from '../../helper/Enum';
 import IVoter from '../../interfaces/IVoter';
 import './ActiveStory.scss';
+import FibonacciBox from './FibonacciBox/FibonacciBox';
 import IActiveStoryProps from './interface/IActiveStoryProps';
 
-const fibonacciNumbers: number[] = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 134];
+const fibonacciNumbers: number[] = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 134, 0];
 export class ActiveStory extends React.Component<IActiveStoryProps, any> {
     render() {
         const { activeUserStory } = this.props;
@@ -15,7 +16,7 @@ export class ActiveStory extends React.Component<IActiveStoryProps, any> {
                 <div className="storyPoint">
                     <div className="storyName">{activeUserStory && activeUserStory.storyName}</div>
                     <div className="storyPointList">
-                        <ul className="row">{this.renderFibonacciNumbers()}</ul>
+                        <ul className="row">{this.renderFibonacciNumbers(storyPoint)}</ul>
                     </div>
                     <div className="voteNumber">
                         {storyPoint === -1 ? 'Please Vote!' : (!storyPoint ? '?' : storyPoint) + ' Voted'}
@@ -25,22 +26,17 @@ export class ActiveStory extends React.Component<IActiveStoryProps, any> {
         );
     }
 
-    renderFibonacciNumbers = (): React.ReactNode => {
-        const storyPoint = this.getMyStoryPoint();
+    renderFibonacciNumbers = (storyPoint: number): React.ReactNode => {
         return (
             <ul className="row">
                 {fibonacciNumbers.map((x: number) => (
-                    <li
-                        className={`col-3 ${storyPoint === x ? 'selected' : undefined}`}
-                        onClick={() => this.giveStoryPoint(x)}
+                    <FibonacciBox
+                        fibonacciNumber={x}
+                        giveStoryPoint={this.giveStoryPoint}
+                        storyPoint={storyPoint}
                         key={x}
-                    >
-                        <span>{x}</span>
-                    </li>
+                    />
                 ))}
-                <li className={`col-3 ${!storyPoint ? 'selected' : undefined}`} onClick={() => this.giveStoryPoint()}>
-                    <span>?</span>
-                </li>
             </ul>
         );
     };

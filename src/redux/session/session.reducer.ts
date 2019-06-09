@@ -27,6 +27,18 @@ export default function SessionReducer(state: ISessionModel = {}, action: any) {
                 selectedSessionId: action.id,
             };
         }
+        case SessionConstants.SET_SELECTED_SESSION_BY_URL: {
+            const sessions: ISession[] = Object.assign([], state.sessions);
+            const sessionIndex = sessions.findIndex(x => x.optionalUrl === action.optionalUrl);
+            if (sessionIndex === -1) {
+                return state;
+            }
+
+            return {
+                ...state,
+                selectedSessionId: sessions[sessionIndex].id,
+            };
+        }
         case SessionConstants.GIVE_STORY_POINT: {
             const sessions: ISession[] = Object.assign([], state.sessions);
             const sessionIndex = sessions.findIndex(x => x.id === state.selectedSessionId);

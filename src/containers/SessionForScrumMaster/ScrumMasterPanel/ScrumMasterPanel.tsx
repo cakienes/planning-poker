@@ -25,6 +25,7 @@ export class ScrumMasterPanel extends React.Component<IScrumMasterPanelProps, an
         );
     }
 
+    // TODO Refactor if have time
     renderVoters = (): React.ReactNode => {
         const { activeUserStory, selectedSession } = this.props;
         if (selectedSession && activeUserStory) {
@@ -62,7 +63,7 @@ export class ScrumMasterPanel extends React.Component<IScrumMasterPanelProps, an
                 activeUserStory.voters &&
                 activeUserStory.voters.length === Number(selectedSession.numberOfVoters) + 1
             ) {
-                return <FinalScoreForm onSubmit={this.setFinalScore} />;
+                return <FinalScoreForm onSubmit={this.setFinalScore} activeUserStory={activeUserStory} />;
             }
             return <div>You can not end voting till each teammate voted</div>;
         }

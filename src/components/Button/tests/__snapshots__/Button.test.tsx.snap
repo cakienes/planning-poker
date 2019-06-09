@@ -1,3 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button.tsx renders without crashing 1`] = `ShallowWrapper {}`;
+exports[`Button.tsx render correctly Button 1`] = `
+<div
+  className="defaultButtonHolder"
+>
+  <button
+    onClick={[MockFunction]}
+  >
+    label
+  </button>
+</div>
+`;

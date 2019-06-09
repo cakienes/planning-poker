@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormField rendered correctly FormField while type is number 1`] = `
+<Input
+  input={
+    Object {
+      "name": null,
+      "onBlur": null,
+      "onChange": null,
+      "onDragStart": null,
+      "onDrop": null,
+      "onFocus": null,
+      "value": null,
+    }
+  }
+  meta={
+    Object {
+      "asyncValidating": null,
+      "autofilled": null,
+      "dirty": null,
+      "dispatch": null,
+      "form": null,
+      "initial": null,
+      "invalid": null,
+      "pristine": null,
+      "submitFailed": null,
+      "submitting": null,
+      "touched": null,
+      "valid": null,
+      "visited": null,
+    }
+  }
+  placeholder={null}
+  type="number"
+/>
+`;
+
+exports[`FormField rendered correctly FormField while type is text 1`] = `
+<Input
+  input={
+    Object {
+      "name": null,
+      "onBlur": null,
+      "onChange": null,
+      "onDragStart": null,
+      "onDrop": null,
+      "onFocus": null,
+      "value": null,
+    }
+  }
+  meta={
+    Object {
+      "asyncValidating": null,
+      "autofilled": null,
+      "dirty": null,
+      "dispatch": null,
+      "form": null,
+      "initial": null,
+      "invalid": null,
+      "pristine": null,
+      "submitFailed": null,
+      "submitting": null,
+      "touched": null,
+      "valid": null,
+      "visited": null,
+    }
+  }
+  placeholder={null}
+  type="text"
+/>
+`;
+
+exports[`FormField rendered correctly FormField while type is textarea 1`] = `
+<Textarea
+  input={
+    Object {
+      "name": null,
+      "onBlur": null,
+      "onChange": null,
+      "onDragStart": null,
+      "onDrop": null,
+      "onFocus": null,
+      "value": null,
+    }
+  }
+  meta={
+    Object {
+      "asyncValidating": null,
+      "autofilled": null,
+      "dirty": null,
+      "dispatch": null,
+      "form": null,
+      "initial": null,
+      "invalid": null,
+      "pristine": null,
+      "submitFailed": null,
+      "submitting": null,
+      "touched": null,
+      "valid": null,
+      "visited": null,
+    }
+  }
+  placeholder={null}
+  type="textarea"
+/>
+`;
+
+exports[`FormField rendered correctly FormField while type is textarea 2`] = `null`;

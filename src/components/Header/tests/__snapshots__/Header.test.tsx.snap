@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header.tsx render correctly Header 1`] = `
+<div
+  className="mt-3 mb-3"
+>
+  <img
+    alt="Scrum Poker"
+    src="PlanningPoker.jpg"
+  />
+</div>
+`;

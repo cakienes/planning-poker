@@ -13,30 +13,28 @@ import {
     giveStoryPoint,
     setDeveloper,
     setNewDeveloper,
+    setSelecedSessionByUrl,
     setSelectedSession,
 } from '../../redux/session/session.actions';
 import { getActiveUserStory, getSelectedSession } from '../../redux/session/session.selectors';
 import Layout from '../Layout/Layout';
 import ISessionForDeveloperProps from './interface/ISessionForDeveloperProps';
 
-interface ISessionForDeveloperState {
-    position?: number;
-}
-export class SessionForDeveloper extends React.Component<ISessionForDeveloperProps, ISessionForDeveloperState> {
+export class SessionForDeveloper extends React.Component<ISessionForDeveloperProps, any> {
     constructor(props: ISessionForDeveloperProps) {
         super(props);
-        this.state = {
-            position: 0,
-        };
+        this.state = {};
     }
     componentWillMount() {
         const {
             match: {
-                params: { id },
+                params: { id, optionalUrl },
             },
         } = this.props;
         if (id) {
             this.props.setSelectedSession(id);
+        } else if (optionalUrl) {
+            this.props.setSelecedSessionByUrl(optionalUrl);
         }
     }
 
@@ -87,23 +85,21 @@ export class SessionForDeveloper extends React.Component<ISessionForDeveloperPro
             },
         } = this.props;
         if (!selectedSession) {
-            toastr.error('SESSION NOT FOUND', 'Could not found session');
-        }
-        if (developerId) {
+            toastr.error('SESSION NOT FOUND', '');
+        } else if (developerId) {
             if (!selectedSession.developers.find((x: string) => x === developerId)) {
-                this.props.history.push('/session-error/not-found');
+                this.props.history.push('/session-error');
             } else {
                 this.props.setDeveloper(developerId);
             }
-        }
-        if (!developerId) {
+        } else if (!developerId) {
             if (selectedSession.developers.length < selectedSession.numberOfVoters) {
                 const guid = uuid();
                 this.props.history.replace(`/session/${selectedSession.id}/developer/${guid}`);
                 this.props.setNewDeveloper(guid);
                 return true;
             } else {
-                this.props.history.push('/session-error/full');
+                this.props.history.push('/session-error');
             }
         }
         return false;
@@ -135,6 +131,9 @@ export const mapDispatchToProps = (dispatch: Function) => {
         },
         getSessionsFromLocalStorage: () => {
             dispatch(getSessionsFromLocalStorage());
+        },
+        setSelecedSessionByUrl: (optionalUrl: string) => {
+            dispatch(setSelecedSessionByUrl(optionalUrl));
         },
     };
 };

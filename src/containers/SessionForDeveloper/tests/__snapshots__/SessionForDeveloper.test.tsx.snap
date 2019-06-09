@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SessionForDeveloper.tsx renders correctly SessionForDeveloper 1`] = `
+<Layout>
+  <div
+    className="session"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        <UserStoryList />
+      </div>
+      <div
+        className="col-4"
+      >
+        <ActiveStory
+          giveStoryPoint={[MockFunction]}
+          type="DEVELOPER"
+        />
+      </div>
+    </div>
+  </div>
+</Layout>
+`;

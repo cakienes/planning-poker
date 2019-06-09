@@ -26,10 +26,22 @@ export class SessionForScrumMaster extends React.Component<ISessionForScrumMaste
 
     render() {
         const { selectedSession, activeUserStory } = this.props;
-        console.log('rendered');
         return (
             <Layout>
                 <div className="session">
+                    <div className="row">
+                        <div className="col">
+                            <div className="linkHolder">
+                                <span>Link for developers: </span>
+                                <span className="font-weight-bold">
+                                    {selectedSession && selectedSession.optionalUrl
+                                        ? `${window.location.origin}/${selectedSession.optionalUrl}/developer`
+                                        : `${window.location.origin}/session/${selectedSession &&
+                                              selectedSession.id}/developer`}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                     <div className="row">
                         <div className="col">
                             <UserStoryList selectedSession={selectedSession} />

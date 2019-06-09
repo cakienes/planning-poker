@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrumMasterPanel.tsx renderVoters of ScrumMasterPanel while selectedSession && activeUserStory is defined 1`] = `
+<ul>
+  <li>
+    Voter-
+    1
+     : 
+    Not Voted
+  </li>
+  <li>
+    Voter-
+    2
+     : 
+    Not Voted
+  </li>
+  <li>
+    Scrum Master : 
+    Not Voted
+  </li>
+</ul>
+`;
+
+exports[`ScrumMasterPanel.tsx renders correctly ScrumMasterPanel 1`] = `
+<div
+  className="scrumMasterPanel"
+>
+  <div
+    className="storyDetail"
+  >
+    <div
+      className="panelName"
+    >
+      Scrum Master Panel
+    </div>
+    <div
+      className="detailBox"
+    >
+      <div
+        className="storyName"
+      />
+      <div
+        className="voterList"
+      />
+    </div>
+    <div
+      className="text-center"
+    >
+      <div>
+        SESSION ENDED
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ScrumMasterPanel.tsx renders correctly ScrumMasterPanel while activeUserStory is defined 1`] = `
+<div
+  className="scrumMasterPanel"
+>
+  <div
+    className="storyDetail"
+  >
+    <div
+      className="panelName"
+    >
+      Scrum Master Panel
+    </div>
+    <div
+      className="detailBox"
+    >
+      <div
+        className="storyName"
+      >
+        storyName
+      </div>
+      <div
+        className="voterList"
+      />
+    </div>
+    <div
+      className="text-center"
+    >
+      <div>
+        You can not end voting till each teammate voted
+      </div>
+    </div>
+  </div>
+</div>
+`;

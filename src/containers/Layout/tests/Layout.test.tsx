@@ -1,9 +1,14 @@
-import { shallow } from 'enzyme';
 import React from 'react';
+import { createRenderer, ShallowRenderer } from 'react-test-renderer/shallow';
 import Layout from '../Layout';
 
 describe('Layout.tsx', () => {
-    it('renders without crashing', async () => {
-        expect(shallow(<Layout />)).toMatchSnapshot();
+    let renderer: ShallowRenderer;
+    beforeEach(() => {
+        renderer = createRenderer();
+    });
+
+    it('renders correctly Layout', async () => {
+        expect(renderer.render(<Layout />)).toMatchSnapshot();
     });
 });

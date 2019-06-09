@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SessionError.tsx renders correctly SessionError 1`] = `
+<Layout>
+  <div>
+    SESSION IS NOT FOUND
+  </div>
+</Layout>
+`;

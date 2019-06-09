@@ -1,3 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Layout.tsx renders without crashing 1`] = `ShallowWrapper {}`;
+exports[`Layout.tsx renders correctly Layout 1`] = `
+<div
+  className="container-fluid"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <Header />
+    </div>
+  </div>
+  <div
+    className="row "
+  >
+    <div
+      className="col"
+    />
+  </div>
+</div>
+`;

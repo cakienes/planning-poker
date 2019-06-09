@@ -11,4 +11,5 @@ export default interface ISessionForDeveloperProps extends RouteComponentProps<a
     setDeveloper: (developerId: string) => void;
     setNewDeveloper: (guid: string) => void;
     setSelectedSession: (id: string) => void;
+    setSelecedSessionByUrl: (optionalUrl: string) => void;
 }

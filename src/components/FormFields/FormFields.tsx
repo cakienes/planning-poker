@@ -3,7 +3,7 @@ import Input from './Input/Input';
 import IFormFieldsProps from './interface/IFormFieldsProps';
 import Textarea from './Textarea/Textarea';
 
-const FormFields = (props: IFormFieldsProps) => {
+const FormFields = (props: IFormFieldsProps): React.ReactNode => {
     switch (props.type) {
         case 'text':
         case 'number':
@@ -11,7 +11,7 @@ const FormFields = (props: IFormFieldsProps) => {
         case 'textarea':
             return <Textarea {...props} />;
         default:
-            break;
+            return null;
     }
 };
 
